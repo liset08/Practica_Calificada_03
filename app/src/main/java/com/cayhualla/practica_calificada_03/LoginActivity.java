@@ -12,14 +12,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        public void showRegister(View view){
-            startActivityForResult(new Intent(this, RegisterUusarioActivity.class), REGISTER_FORM_REQUEST);
-        }
 
 
+}
+
+    public void showRegister(View view) {
+        startActivityForResult(new Intent(this, RegisterUusarioActivity.class), REGISTER_FORM_REQUEST);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == REGISTER_FORM_REQUEST) {
+        if (requestCode == REGISTER_FORM_REQUEST) {
             // refresh data
             initialize();
         }

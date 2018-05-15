@@ -15,7 +15,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterUusarioActivity extends AppCompatActivity {
-    private static final String TAG = RegisterUusarioActivity.class.getSimpleName();
+  /*  private static final String TAG = RegisterUusarioActivity.class.getSimpleName();
     private EditText nombreInput;
     private EditText apellidoInput;
     private EditText usernameInput;
@@ -101,7 +101,7 @@ public class RegisterUusarioActivity extends AppCompatActivity {
         });
     }
 
-
+*/
 }
 
 
