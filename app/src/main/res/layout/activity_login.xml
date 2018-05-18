@@ -68,7 +68,7 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/holo_green_light"
                 android:text="Ingresar"
-                android:onClick="callLogin"
+
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_green_light"
                 android:text="Registrarse"
-                android:onClick=""
+                android:onClick="showRegister"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 

@@ -15,7 +15,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterUusarioActivity extends AppCompatActivity {
-  /*  private static final String TAG = RegisterUusarioActivity.class.getSimpleName();
+   private static final String TAG = RegisterUusarioActivity.class.getSimpleName();
     private EditText nombreInput;
     private EditText apellidoInput;
     private EditText usernameInput;
@@ -54,14 +54,14 @@ public class RegisterUusarioActivity extends AppCompatActivity {
         ApiService service = ApiServiceGenerator.createService(ApiService.class);
 
         Call<ResponseMessage> call = null;
+        call = service.createUsuarios(nombre, apellido, username, password,distrito,1);
 
-        RequestBody nombrePart = RequestBody.create(MultipartBody.FORM, nombre);
+        /*RequestBody nombrePart = RequestBody.create(MultipartBody.FORM, nombre);
         RequestBody apellidoPart = RequestBody.create(MultipartBody.FORM, apellido);
         RequestBody usernamePart = RequestBody.create(MultipartBody.FORM, username);
         RequestBody passwordPart = RequestBody.create(MultipartBody.FORM, password);
         RequestBody distritoPart = RequestBody.create(MultipartBody.FORM, distrito);
-
-        call = service.createUsuarioFinal(nombrePart, apellidoPart, usernamePart, passwordPart,distritoPart);
+*/
         call.enqueue(new Callback<ResponseMessage>() {
             @Override
             public void onResponse(Call<ResponseMessage> call, Response<ResponseMessage> response) {
@@ -101,7 +101,7 @@ public class RegisterUusarioActivity extends AppCompatActivity {
         });
     }
 
-*/
+
 }
 
 

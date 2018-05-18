@@ -5,18 +5,31 @@ package com.cayhualla.practica_calificada_03.models;
  */
 
 public class Usuarios {
-    private Integer id;
+
+
 
     @Override
     public String toString() {
-        return "Producto{" +
+        return "Usuarios{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", distrito='" + distrito + '\'' +
+                ", tipo='" + tipo + '\'' +
                 '}';
+    }
+    private Integer id;
+
+    public Usuarios(Integer id, String nombre, String apellido, String username, String password, String distrito, String tipo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.username = username;
+        this.password = password;
+        this.distrito = distrito;
+        this.tipo = tipo;
     }
 
     private String nombre;
@@ -25,6 +38,18 @@ public class Usuarios {
 
     private String password;
     private String distrito;
+    private String tipo;
+
+
+    public String getTipoUser() {
+        return tipo;
+    }
+
+    public void setTipo(String tipoUser) {
+        this.tipo = tipoUser;
+    }
+
+
 
 
 
@@ -78,13 +103,5 @@ public class Usuarios {
 
 
 
-    public Usuarios(Integer id, String nombre, String apellido, String username, String password, String distrito) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.username = username;
-        this.password = password;
-        this.distrito = distrito;
-    }
 
 }

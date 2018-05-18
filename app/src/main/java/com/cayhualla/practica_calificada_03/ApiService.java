@@ -1,6 +1,5 @@
 package com.cayhualla.practica_calificada_03;
 
-
 import com.cayhualla.practica_calificada_03.models.Usuarios;
 
 import java.util.List;
@@ -13,6 +12,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+
+/**
 
 /**
  * Created by Alumno on 15/05/2018.
@@ -33,12 +34,13 @@ public interface ApiService {
     Call<ResponseMessage> createUsuarios(@Field("nombre") String nombre,
                                          @Field("apellido") String apellido,
                                          @Field("username") String username,
-                                        @Field("password") String password,
-                                        @Field("distrito") String distrito);
+                                         @Field("password") String password,
+                                         @Field("distrito") String distrito,
+                                            @Field("tipo") int tipo );
 
 
     @Multipart
-    @POST("/api/v1/productos")
+    @POST("/api/v1/usuarios")
     Call<ResponseMessage> createUsuarioFinal(
             @Part("nombre") RequestBody nombre,
             @Part("apellido") RequestBody apellido,
