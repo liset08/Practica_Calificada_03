@@ -1,9 +1,11 @@
 package com.cayhualla.practica_calificada_03;
 
+import com.cayhualla.practica_calificada_03.models.Denuncias;
 import com.cayhualla.practica_calificada_03.models.Usuarios;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -24,9 +26,11 @@ public interface ApiService {
 
         String API_BASE_URL = "https://productosapi-liset08.c9users.io";
 
-        @GET("api/v1/usuarios")
-        Call<List<Usuarios>> getUsuarios();
+        @GET("api/v1/denuncias")
+        Call<List<Denuncias>> getDenuncias();
 
+    @GET("api/v1/usuarios")
+    Call<List<Usuarios>> getUsuarios();
 
 
     @FormUrlEncoded
@@ -39,14 +43,19 @@ public interface ApiService {
                                             @Field("tipo") int tipo );
 
 
+    @FormUrlEncoded
+    @POST("api/v1/denuncias")
+    Call<ResponseMessage> createDenuncias(@Field("titulo") String titulo,
+                                         @Field("descripcion") String descripcion,
+                                         @Field("ubicacion") String ubicacion);
+
     @Multipart
-    @POST("/api/v1/usuarios")
-    Call<ResponseMessage> createUsuarioFinal(
-            @Part("nombre") RequestBody nombre,
-            @Part("apellido") RequestBody apellido,
-            @Part("username") RequestBody username,
-            @Part("password") RequestBody password,
-            @Part("distrito") RequestBody distrito
+    @POST("api/v1/denuncias ")
+    Call<ResponseMessage> createDenunciaWhithImage(
+            @Part("titulo") RequestBody nombre,
+            @Part("descripcion") RequestBody apellido,
+            @Part("ubicacion") RequestBody username,
+            @Part MultipartBody.Part pfoto
 
             );
 

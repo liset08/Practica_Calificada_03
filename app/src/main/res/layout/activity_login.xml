@@ -7,7 +7,7 @@
     android:background="@android:color/background_light"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.cayhualla.practica_calificada_03.LoginActivity">
+    tools:context="com.cayhualla.practica_calificada_03.Activities.LoginActivity">
 
 
     <LinearLayout

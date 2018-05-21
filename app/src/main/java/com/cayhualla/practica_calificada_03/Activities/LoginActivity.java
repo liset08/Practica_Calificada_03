@@ -1,9 +1,11 @@
-package com.cayhualla.practica_calificada_03;
+package com.cayhualla.practica_calificada_03.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.cayhualla.practica_calificada_03.R;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int REGISTER_FORM_REQUEST = 100;

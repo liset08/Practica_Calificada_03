@@ -1,5 +1,6 @@
-package com.cayhualla.practica_calificada_03;
+package com.cayhualla.practica_calificada_03.Activities;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,8 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
+import com.cayhualla.practica_calificada_03.ApiService;
+import com.cayhualla.practica_calificada_03.ApiServiceGenerator;
+import com.cayhualla.practica_calificada_03.R;
+import com.cayhualla.practica_calificada_03.ResponseMessage;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,6 +25,7 @@ public class RegisterUusarioActivity extends AppCompatActivity {
     private EditText usernameInput;
     private EditText passwordInput;
     private EditText distritoInput;
+    private static final int REGISTER_FORM_REQUEST = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,11 +101,17 @@ public class RegisterUusarioActivity extends AppCompatActivity {
             public void onFailure(Call<ResponseMessage> call, Throwable t) {
                 Log.e(TAG, "onFailure: " + t.toString());
                 Toast.makeText(RegisterUusarioActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+
             }
 
         });
+        startActivityForResult(new Intent(this, MainActivity.class), REGISTER_FORM_REQUEST);
+
     }
 
+
+    public void showRegisterusuario(View view){
+    }
 
 }
 
