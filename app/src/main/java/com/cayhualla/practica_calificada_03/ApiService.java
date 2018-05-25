@@ -14,6 +14,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 /**
 
@@ -26,6 +27,13 @@ public interface ApiService {
 
         String API_BASE_URL = "https://productosapi-liset08.c9users.io";
 
+    @GET("api/v1/usuarios/{id}")
+    Call<Usuarios> showUser(@Path("id") Integer id);
+
+    @FormUrlEncoded
+    @POST("/api/v1/login")
+    Call<Usuarios> login(@Field("username") String username,
+                        @Field("password") String password);
         @GET("api/v1/denuncias")
         Call<List<Denuncias>> getDenuncias();
 
@@ -45,20 +53,26 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("api/v1/denuncias")
-    Call<ResponseMessage> createDenuncias(@Field("titulo") String titulo,
+    Call<ResponseMessage> createDenuncias(
+            @Field("id_user") Integer id_user,
+
+            @Field("titulo") String titulo,
                                          @Field("descripcion") String descripcion,
                                          @Field("ubicacion") String ubicacion);
 
     @Multipart
     @POST("api/v1/denuncias ")
     Call<ResponseMessage> createDenunciaWhithImage(
+            @Part("id_user") RequestBody id_user,
+
             @Part("titulo") RequestBody nombre,
             @Part("descripcion") RequestBody apellido,
             @Part("ubicacion") RequestBody username,
             @Part MultipartBody.Part pfoto
 
             );
+    @GET("api/v1/denuncias/{id_user}")
+    Call<List<Denuncias>> DenunciasPropias(@Path("id_user") Integer id_user);
 
 }
-
 

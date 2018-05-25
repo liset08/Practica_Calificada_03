@@ -16,18 +16,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
-        <activity android:name=".Activities.LoginActivity">
+        <activity android:name=".Activities.RegisterUusarioActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".Activities.DenunciaRegister" android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Activities.DenunciacUserActivity" />
+        <activity android:name=".SplachActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.RegisterUusarioActivity" />
-        <activity android:name=".Activities.DenunciaRegister"></activity>
+            </intent-filter></activity>
     </application>
 
 </manifest>

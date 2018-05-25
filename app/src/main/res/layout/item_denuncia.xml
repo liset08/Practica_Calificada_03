@@ -13,46 +13,46 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="243dp"
         android:padding="16dp">
 
         <ImageView
             android:id="@+id/foto_image"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
-            android:layout_marginEnd="16dp"
-            app:srcCompat="@mipmap/ic_launcher"/>
+            app:srcCompat="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/nombre_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/foto_image"
+            android:layout_below="@+id/foto_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Nombre de la denuncia"
+            android:textAlignment="center"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="Nombre de la denuncia"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/denunciante_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/foto_image"
             android:layout_below="@+id/nombre_text"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
             android:text="Denunciante"
-            />
+            android:textSize="16sp" />
+
         <TextView
             android:id="@+id/ubicacion_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/foto_image"
-            android:layout_below="@+id/denunciante_text"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:text="Ubicacion"
-            />
+            android:textSize="16sp" />
 
     </RelativeLayout>
 

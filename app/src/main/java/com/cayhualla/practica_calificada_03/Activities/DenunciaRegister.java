@@ -2,12 +2,14 @@ package com.cayhualla.practica_calificada_03.Activities;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -38,6 +40,8 @@ import retrofit2.Response;
 
 public class DenunciaRegister extends AppCompatActivity {
     private static final String TAG = DenunciaRegister.class.getSimpleName();
+    private SharedPreferences sharedPreferences;
+    private Integer id;
 
     private ImageView pfoto;
     private EditText nombreInput;
@@ -57,6 +61,8 @@ public class DenunciaRegister extends AppCompatActivity {
         nombreInput = findViewById(R.id.nombre_input);
         descriptionInput = findViewById(R.id.description_input);
         ubicationInput = findViewById(R.id.ubicacion_input);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        id = sharedPreferences.getInt("id", 3);
     }
 
     private static final int CAPTURE_IMAGE_REQUEST = 300;
@@ -126,6 +132,7 @@ public class DenunciaRegister extends AppCompatActivity {
         String nombre = nombreInput.getText().toString();
         String descripcion = descriptionInput.getText().toString();
         String ubicacion = ubicationInput.getText().toString();
+        Integer id_user = id;
 
         if (nombre.isEmpty() || descripcion.isEmpty()|| ubicacion.isEmpty()) {
             Toast.makeText(this, "Nombre y Precio son campos requeridos", Toast.LENGTH_SHORT).show();
@@ -138,7 +145,7 @@ public class DenunciaRegister extends AppCompatActivity {
 
         if (mediaFileUri == null) {
             // Si no se incluye imagen hacemos un envío POST simple
-            call = service.createDenuncias(nombre, descripcion, ubicacion);
+            call = service.createDenuncias(id_user,nombre, descripcion, ubicacion);
         } else {
             // Si se incluye hacemos envió en multiparts
 
@@ -160,11 +167,12 @@ public class DenunciaRegister extends AppCompatActivity {
             RequestBody requestFile = RequestBody.create(MediaType.parse("pfoto/jpeg"), byteArray);
             MultipartBody.Part imagenPart = MultipartBody.Part.createFormData("pfoto", file.getName(), requestFile);
 
+            RequestBody id_userPart = RequestBody.create(MultipartBody.FORM, String.valueOf(id_user));
             RequestBody nombrePart = RequestBody.create(MultipartBody.FORM, nombre);
             RequestBody precioPart = RequestBody.create(MultipartBody.FORM, descripcion);
             RequestBody detallesPart = RequestBody.create(MultipartBody.FORM, ubicacion);
 
-            call = service.createDenunciaWhithImage(nombrePart, precioPart, detallesPart, imagenPart);
+            call = service.createDenunciaWhithImage(id_userPart,nombrePart, precioPart, detallesPart, imagenPart);
         }
 
         call.enqueue(new Callback<ResponseMessage>() {

@@ -4,32 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ser"
     tools:context="com.cayhualla.practica_calificada_03.Activities.MainActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textSize="30sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="26dp"
         android:text="Lista de sus Denuncias"
-        android:id="@+id/textView2" />
+        android:textSize="18sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/floatingActionButton3"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2" />
+        android:layout_below="@+id/button"
+        android:layout_marginTop="34dp" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:src="@android:drawable/ic_menu_add"
-        android:onClick="showRegisterdenuncia"
-        android:id="@+id/floatingActionButton3" />
+
+
+
 
 </RelativeLayout>

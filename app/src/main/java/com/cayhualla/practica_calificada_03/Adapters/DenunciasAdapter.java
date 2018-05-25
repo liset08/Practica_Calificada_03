@@ -1,5 +1,6 @@
 package com.cayhualla.practica_calificada_03.Adapters;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cayhualla.practica_calificada_03.Activities.MainActivity;
 import com.cayhualla.practica_calificada_03.ApiService;
 import com.cayhualla.practica_calificada_03.R;
 import com.cayhualla.practica_calificada_03.models.Denuncias;
@@ -23,10 +25,13 @@ public class DenunciasAdapter extends RecyclerView.Adapter<DenunciasAdapter.View
 
 
         private List<Denuncias> denuncias;
+    private Activity activity;
+    public DenunciasAdapter(Activity activity){
 
-    public DenunciasAdapter(){
         this.denuncias = new ArrayList<>();
+        this.activity = activity;
     }
+
 
     public void setDenuncias(List<Denuncias> denuncias){
         this.denuncias = denuncias;
